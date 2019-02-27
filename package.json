@@ -1,0 +1,21 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "demo project",
+  "scripts": {
+    "prestart-webdriver": "webdriver-manager update",
+    "start-webdriver": "webdriver-manager start",
+    "protractor": "protractor configuration/conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.1",
+    "chai-as-promised": "^7.1.1",
+    "jasmine-core": "^2.4.1",
+    "protractor": "^5.4.2"
+  },
+  "devDependencies": {
+    "protractor-beautiful-reporter": "^1.2.7"
+  }
+}
