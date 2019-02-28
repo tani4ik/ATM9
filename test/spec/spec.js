@@ -1,8 +1,9 @@
 const ProductPage = require('./../po/productPage'),
-    BasketPage = require('./../po/basketPage');
-    WishlistPage = require('./../po/wishlistPage');
-    HomePage = require('./../po/homePage');
-    Helper = require('./../support/helper.js');
+    BasketPage = require('./../po/basketPage'),
+    WishlistPage = require('./../po/wishlistPage'),
+    HomePage = require('./../po/homePage'),
+    Helper = require('./../support/helper.js'),
+    CurrentPageProvider = require('../support/currentPageProvider');
 
 describe('Add and remove item from wishlist', () => {
     let productPage, wishlistPage, helper;
@@ -15,7 +16,9 @@ describe('Add and remove item from wishlist', () => {
     });
 
     it('should check page title of Product Page', () => {
-        expect(productPage.checkPageTitle('Wiggle | LittleLife Toddler Animal Daysack | Rucksacks')).to.eventually.be.true;
+        CurrentPageProvider.instance.getCurrentPage()
+        .then(po => expect(po.checkPageTitle('Wiggle | LittleLife Toddler Animal Daysack | Rucksacks'))
+                    .to.eventually.be.true);
     });
 
     it('should select colour and size options', () => {

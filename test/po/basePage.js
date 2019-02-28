@@ -1,12 +1,14 @@
-const Header = require('./common/headerComponent.js');
-const Footer = require('./common/footerComponent.js');
+const ComponentFactory = require('./common/factory/componentFactory.js');
 const Helper = require('../support/helper');
 
 class BasePage {
 
     constructor() {
-        this.header = new Header();
-        this.footer = new Footer();
+        this.factory = new ComponentFactory();
+
+        this.header = this.factory.createHeader();
+        this.footer = this.factory.createFooter();
+        
         this.helper = new Helper();
     }
 
@@ -22,7 +24,7 @@ class BasePage {
     }
 
     checkPageURL(pageURL) {
-        return browser.executeScript('return document.URL').then((url) => {
+        return this.helper.getPageURL().then((url) => {
             return url === pageURL;
         })
     }

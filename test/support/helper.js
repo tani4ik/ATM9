@@ -31,6 +31,14 @@ class Helper {
                 })
             })
     }
+
+    getPageURL() {
+        return browser.executeScript('return document.URL');
+    }
+
+    getPageURI() {
+        return browser.executeScript('return document.location.pathname');
+    }
 }
 
 module.exports = Helper;
